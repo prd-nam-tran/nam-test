@@ -9,8 +9,8 @@ class OrderService:
         self.owner = owner
 
         # print(f'Get order_list by self ', self.order_list)
-        #
-        # self.order_list = [1, 2]
+
+        self.order_list += [1, 2]
         # print(f'Get order_list by self after changing value ', self.order_list)
         # print(f'Get order_list by self.__class__ ', self.__class__.order_list)
         #
@@ -19,6 +19,20 @@ class OrderService:
 
     def get_order_list(self):
         return self.order_list
+
+    @classmethod
+    def get_order_list2(cls):
+        return cls.order_list
+
+    @classmethod
+    def test(cls):
+        print(cls.test2())
+        print(333)
+
+    @classmethod
+    def test2(cls):
+        print(444)
+        print(cls)
 
     @classmethod
     def add_order(cls, order):
@@ -42,19 +56,25 @@ class OrderService:
 
 
 if __name__ == '__main__':
-    print(OrderService.order_service_type)
+    pass
 
-    orderService1 = OrderService()
-    orderService1.owner = "New Nam"
-    print(orderService1.owner)
+    list1 = []
+    for i in range(0, 10):
+        list1.append(i * 7 + 1)
 
-    print(orderService1.get_order_list())
+    print(list1)
 
-    orderService1.order_list += [3, 4]
-    print(orderService1.order_list)
+    list2 = list1 + list1
 
-    print(OrderService.order_list)
+    set2 = set(list2)
+    newList = list(set2)
 
-    print('--------------------')
-    orderService2 = OrderService()
-    print(orderService2.get_order_list())
+    print(newList)
+
+    d = {index*2: value*4 for index, value in enumerate(newList)}
+
+    print(d)
+
+
+
+
